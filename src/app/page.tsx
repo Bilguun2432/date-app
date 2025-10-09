@@ -135,7 +135,7 @@ export default function HomePage() {
           Сайн уу, Ганболорт — 💖
         </h1>
         <p className="mt-4 text-lg text-gray-800/90 dark:text-gray-200/90">
-          2025.10.9 бид хоёрын <strong>ядаргаа тайлах</strong> өдөр 🌿
+          2025.10.10 бид хоёрын <strong>ядаргаа тайлах</strong> өдөр 🌿
         </p>
 
         <motion.a href="/plan" whileHover={{scale:1.05}} whileTap={{scale:.98}}
