@@ -37,7 +37,7 @@ export default function SurprisePage() {
 
       <audio
         ref={audioRef}
-        src="/music.mp3"
+        src="/Adventure-Of-A-Lifetime.mp3"
         loop
         preload="auto"
         playsInline
@@ -57,7 +57,7 @@ export default function SurprisePage() {
 
         <motion.ul className="mt-4 space-y-2 text-[14.5px] leading-relaxed text-white/95 drop-shadow-[0_1px_1px_rgba(0,0,0,0.4)] text-left">
           <motion.li>🌅 Нар жаргах үеэр дээвэр дээр эсвэл балконоос алсыг ширтэнгээ.</motion.li>
-          <motion.li>🌳 Тайван цэцэрлэгт сандал дээр, зөөлөн салхины дунд.</motion.li>
+          <motion.li>🌳 Тайван цэцэрлэгт сандал дээр, зөөлөн салхины дунд суунгаа.</motion.li>
           <motion.li>🚗 Холын замд аялахдаа, тэнгэрийн хаяа ажиглангаа.</motion.li>
         </motion.ul>
 

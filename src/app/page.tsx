@@ -131,7 +131,7 @@ export default function HomePage() {
         <div aria-hidden className="pointer-events-none absolute -inset-1 -z-10 rounded-[2rem] blur-2xl"
              style={{background:'radial-gradient(600px circle at 50% 0%, rgba(236,72,153,.25), transparent 40%), radial-gradient(500px circle at 0% 100%, rgba(59,130,246,.25), transparent 40%)'}}/>
 
-        <h1 className="text-3xl font-bold text-pink-600 drop-shadow-sm dark:text-pink-300">
+        <h1 className="text-xl font-bold text-pink-600 drop-shadow-sm dark:text-pink-300">
           Сайн уу, Ганболорт — 💖
         </h1>
         <p className="mt-4 text-lg text-gray-800/90 dark:text-gray-200/90">

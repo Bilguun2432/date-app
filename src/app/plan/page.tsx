@@ -36,7 +36,7 @@ export default function PlanPage() {
   }, [])
 
   return (
-    <main className="min-h-dvh bg-gradient-to-t from-pink-100 via-purple-100 to-blue-100 flex flex-col items-center justify-start p-6 pb-[calc(1rem+env(safe-area-inset-bottom))]">
+    <main className="min-h-screen bg-gradient-to-t from-pink-100 via-purple-100 to-blue-100 flex flex-col items-center justify-start p-4 pb-[calc(1rem+env(safe-area-inset-bottom))] overflow-y-auto">
       <motion.h2
         initial={{ opacity: 0, y: -20 }}
         animate={{ opacity: 1, y: 0 }}
@@ -46,14 +46,14 @@ export default function PlanPage() {
         Оройн төлөвлөгөө 💞
       </motion.h2>
 
-      <div className="flex flex-col gap-4 w-full max-w-md">
+      <div className="flex flex-col gap-3 w-full max-w-md">
         {plan.map((p, i) => (
           <motion.div
             key={i}
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: i * 0.15, type: 'spring', stiffness: 70 }}
-            className="backdrop-blur-lg bg-white/60 border border-white/30 rounded-3xl shadow-lg p-4 flex items-center gap-4 hover:scale-[1.02] transition-transform duration-200"
+            className="backdrop-blur-lg bg-white/60 border border-white/30 rounded-2xl shadow-lg p-3 flex items-center gap-3 hover:scale-[1.02] transition-transform duration-200"
           >
             <span className="text-3xl">{p.emoji}</span>
             <p className="text-gray-700 text-lg font-medium">{p.text}</p>
