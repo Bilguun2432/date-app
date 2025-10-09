@@ -1,6 +1,5 @@
 'use client'
 
-import Image from 'next/image'
 import { useMemo, useState, useRef, useEffect, useCallback } from 'react'
 import { motion, useReducedMotion } from 'framer-motion'
 
@@ -51,7 +50,6 @@ export default function SurprisePage() {
   const [tracks, setTracks] = useState<Track[]>([])
   const [currentIndex, setCurrentIndex] = useState(0)
   const [playing, setPlaying] = useState(false)
-  const [volume, setVolume] = useState(0.9)
   const [shuffle, setShuffle] = useState(false)
   const [repeat, setRepeat] = useState<'off' | 'one' | 'all'>('all')
   const audioRef = useRef<HTMLAudioElement>(null)
@@ -87,11 +85,6 @@ export default function SurprisePage() {
       } catch {}
     })()
   }, [])
-
-  // apply volume
-  useEffect(() => {
-    if (audioRef.current) audioRef.current.volume = volume
-  }, [volume])
 
   // auto-play on track change if playing
   useEffect(() => {
