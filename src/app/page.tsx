@@ -132,7 +132,7 @@ export default function HomePage() {
              style={{background:'radial-gradient(600px circle at 50% 0%, rgba(236,72,153,.25), transparent 40%), radial-gradient(500px circle at 0% 100%, rgba(59,130,246,.25), transparent 40%)'}}/>
 
         <h1 className="text-xl font-bold text-pink-600 drop-shadow-sm dark:text-pink-300">
-          Сайн уу, Хүндэт Байгалмаад монитагаас нь
+          Сайн уу, Хүндэт монитад монитагаас нь
         </h1>
 
         <motion.a href="/plan" whileHover={{scale:1.05}} whileTap={{scale:.98}}
