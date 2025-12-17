@@ -213,14 +213,8 @@ export default function SurprisePage() {
           transition={{ duration: 1 }}
           className="text-[18px] sm:text-[20px] font-semibold font-dancing text-transparent bg-clip-text bg-gradient-to-r from-pink-400 via-rose-300 to-pink-200 drop-shadow-[0_1.2px_1.2px_rgba(0,0,0,0.4)]"
         >
-          Хаана сонсвол амралт илүү мэдрэгддэг вэ? 💖
+          Ажилд нь ажлын өндрөөс өндөр амжилтыг хүсье 🔥
         </motion.h1>
-
-        <ul className="mt-3 space-y-2 text-[14.5px] leading-relaxed text-white drop-shadow-[0_1px_2px_rgba(0,0,0,0.5)] text-left">
-          <li>🌅 Нар жаргах үеэр дээвэр дээр эсвэл балконоос алсыг ширтэнгээ.</li>
-          <li>🌳 Тайван цэцэрлэгт сандал дээр, зөөлөн салхины дунд суунгаа.</li>
-          <li>🚗 Холын замд аялахдаа, тэнгэрийн хаяа ажиглангаа.</li>
-        </ul>
 
         {/* now playing */}
         <div className="mt-4 text-white drop-shadow-[0_1px_2px_rgba(0,0,0,0.5)]">

@@ -132,15 +132,12 @@ export default function HomePage() {
              style={{background:'radial-gradient(600px circle at 50% 0%, rgba(236,72,153,.25), transparent 40%), radial-gradient(500px circle at 0% 100%, rgba(59,130,246,.25), transparent 40%)'}}/>
 
         <h1 className="text-xl font-bold text-pink-600 drop-shadow-sm dark:text-pink-300">
-          Сайн уу, Ганболорт — 💖
+          Сайн уу, Хүндэт Уранчимэгт монитагаас нь
         </h1>
-        <p className="mt-4 text-lg text-gray-800/90 dark:text-gray-200/90">
-          2025.10.10 бид хоёрын <strong>ядаргаа тайлах</strong> өдөр 🌿
-        </p>
 
         <motion.a href="/plan" whileHover={{scale:1.05}} whileTap={{scale:.98}}
           className="mt-7 inline-block rounded-full bg-pink-500 px-6 py-3 font-medium text-white shadow-md ring-1 ring-white/30 hover:shadow-lg focus:outline-none focus:ring-2 focus:ring-pink-300 dark:ring-white/10">
-          Төлөвлөгөөг үзэх 💌
+          Бэлэг үзэх 💌
         </motion.a>
       </motion.section>
     </main>

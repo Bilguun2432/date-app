@@ -1,5 +1,5 @@
 import { Geist, Geist_Mono } from "next/font/google";
-import "./globals.css";
+import "./globals.css"
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -12,11 +12,10 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata = {
-  title: 'Ганболорт — 💖',
+  title: 'Уранчимэгт',
   description: 'Надаас чамд зориулсан жижигхэн бэлэг',
   openGraph: {
-    title: 'Ганболорт — 💖',
-    description: 'Ядаргаа тайлах өдөр.',
+    title: 'Уранчимэгт',
     images: ['/og.jpg'],
   },
   icons: { icon: '/favicon.ico', apple: '/apple-touch-icon.png' },

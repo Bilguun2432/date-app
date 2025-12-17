@@ -3,28 +3,9 @@ import { useState, useEffect } from 'react'
 import { LazyMotion, domAnimation, m, MotionConfig, useReducedMotion } from 'framer-motion'
 
 const plan = [
-  { emoji: '☕', text: 'Кофе / Bubble tea хамт уух' },
-  { emoji: '🌳', text: 'Гадаа алхах, цэцэрлэгт зураг дарах' },
-  { emoji: '🍣', text: 'Оройн хоол идэх' },
-  { emoji: '🍪', text: 'Амттан идэх, жижиг dessert' },
-  { emoji: '🎥', text: 'Кино үзэх, амттан / popcorn хамт идэх' },
-]
-
-const punishments = [
-  '🤭 Шийтгэл — “Чи хамгийн хөөрхөн нь” гэж 3 удаа чангаар хэлэх',
-  '🎤 Шийтгэл — “Би дэлхийн хамгийн азтай хүн!” гэж чангаар хэлэх',
-  '🍫 Шийтгэл — амттан авч өгөх',
-  '💞 Шийтгэл — нөгөөдөө нэг өхөөрдөм нэр өгч, түүгээр нь 5 минут дуудах',
-  '🫰 Шийтгэл — хамтдаа “heart pose” хийж зураг авахуулах',
-  '😍 Шийтгэл — 10 секундийн турш бие биенээ харан инээмсэглэх',
-  '🫶 Шийтгэл — гараа зүрхний хэлбэртэйгээр нийлүүлж 5 секунд барих',
-  '😝 Шийтгэл — 10 секундийн турш хамгийн тэнэг царай гаргах',
-  '🐸 Шийтгэл — “Мэлхий шиг дуугар” гэж 5 секунд дуугарах',
-  '👀 Шийтгэл — Нөгөө хүнийхээ нүд рүү 10 секунд инээмсэглэн хар',
-  '🌸 Шийтгэл — өөрийн тухай 1 өхөөрдөм зүйл хэлэх',
-  '🎈 Шийтгэл — 5 секундийн турш хийсч буй бөмбөлөг шиг хөдөл',
-  '🤍 Шийтгэл — нөгөөдөө тэврэлт өгөх',
-  '📸 Шийтгэл — селфи авахдаа нэгэн ижил хачин царай гаргах',
+  { emoji: '☕', text: 'Кофе, амттан авхуулах' },
+  { emoji: '🍣', text: 'Өдрийн хоол авхуулах' },
+  { emoji: '🎥', text: 'Кино хүссэн 1 хүнтэйгээ үзэх /киноны тасалбарыг монитагаас авна/' },
 ]
 
 /** ---------- Animated Background Particles ---------- */
@@ -123,10 +104,24 @@ function BackgroundParticles({ baseCount = 28 }: { baseCount?: number }) {
 
 
 export default function PlanPage() {
-  const [randomPunishment, setRandomPunishment] = useState<string | null>(null)
-  useEffect(() => {
-    setRandomPunishment(punishments[Math.floor(Math.random() * punishments.length)])
-  }, [])
+  const [selected, setSelected] = useState<number | null>(null)
+  const [submitted, setSubmitted] = useState(false)
+
+  const vote = async (index: number) => {
+    setSelected(index)
+
+    try {
+      await fetch('/api/vote', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ choice: index }),
+      })
+
+      setSubmitted(true)
+    } catch (e) {
+      alert('Алдаа гарлаа ❌')
+    }
+  }
 
   return (
     <MotionConfig reducedMotion="user">
@@ -139,38 +134,41 @@ export default function PlanPage() {
               transition={{ duration: 0.4 }}
               className="text-3xl sm:text-4xl font-bold text-pink-600 mb-6 text-center"
             >
-              Оройн төлөвлөгөө 💞
+              Бэлэг сонгох
             </m.h2>
 
             <div className="flex flex-col gap-3 w-full max-w-md">
-              {plan.map((p, i) => (
+              {!submitted && (
+                plan.map((p, i) => (
                 <m.div
                   key={i}
-                  initial={{ opacity: 0, y: 10 }}
+                  onClick={() => vote(i)}
+                  initial={{ opacity: 0, y: 10, backgroundColor: 'rgba(255,255,255,0.7)' }}
                   animate={{ opacity: 1, y: 0 }}
+                  whileHover={{ scale: 1.03, backgroundColor: 'rgba(255,192,203,0.7)' }}
                   transition={{ delay: i * 0.12, type: 'spring', stiffness: 70, damping: 14 }}
-                  className="bg-white/70 border border-white/30 rounded-2xl shadow p-3 flex items-center gap-3 hover:scale-[1.01] transition-transform duration-150"
+                  className="cursor-pointer bg-white/70 border border-white/30 rounded-2xl shadow p-3 flex items-center gap-3 hover:scale-[1.01] transition-transform duration-150"
                 >
                   <span className="text-3xl">{p.emoji}</span>
                   <p className="text-gray-700 text-lg font-medium">{p.text}</p>
                 </m.div>
-              ))}
+                )))
+              }
             </div>
 
-            <m.div
-              initial={{ opacity: 0, y: 12 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: plan.length * 0.12 + 0.25 }}
-              className="mt-6 bg-pink-200/60 border border-pink-300/40 rounded-3xl p-5 text-center shadow max-w-md w-full"
-            >
-              <p className="text-xl font-bold text-pink-700 mb-2">😶 “Үг хориглох” тоглоом</p>
-              <p className="text-gray-700 text-base">Хамтдаа байхдаа нэг үгийг (жишээ нь: “за”, “үгүй”, “тэгье”) хэлэх хориотой!</p>
-              {randomPunishment && (
-                <p className="mt-4 text-gray-900 font-semibold bg-white/60 rounded-xl py-2 px-3 inline-block">
-                  🪄 Таны шийтгэл: {randomPunishment}
-                </p>
-              )}
-            </m.div>
+            {submitted && (
+              <m.div
+                initial={{ opacity: 0, y: 10 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.4 }}
+                className="mt-8 px-6 py-3 bg-green-500 text-white rounded-full shadow text-lg font-semibold"
+              >
+                🎉 Баяр хүргэе! Та амжилттай сонгосон.
+                {selected == 0 && ' Кофе амттанг сонгосон таньд баяр хүргэе!'}
+                {selected == 1 && ' Өдрийн хоол сонгосон таньд баяр хүргэе!'}
+                {selected == 2 && ' Кино үзэхийг сонгосон таньд баяр хүргэе!'}
+              </m.div>
+            )}
 
             <m.a
               href="/surprise"
