@@ -12,10 +12,10 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata = {
-  title: 'Уранчимэгт',
+  title: 'Байгалмаад',
   description: 'Надаас чамд зориулсан жижигхэн бэлэг',
   openGraph: {
-    title: 'Уранчимэгт',
+    title: 'Байгалмаад',
     images: ['/og.jpg'],
   },
   icons: { icon: '/favicon.ico', apple: '/apple-touch-icon.png' },
