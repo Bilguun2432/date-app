@@ -117,7 +117,7 @@ export default function HomePage() {
             delay: h.delay,
             ease: 'easeInOut'
           }}
-        >❤️</motion.span>
+        >❄️</motion.span>
       ))}
 
       {/* Card */}
@@ -137,7 +137,7 @@ export default function HomePage() {
 
         <motion.a href="/plan" whileHover={{scale:1.05}} whileTap={{scale:.98}}
           className="mt-7 inline-block rounded-full bg-pink-500 px-6 py-3 font-medium text-white shadow-md ring-1 ring-white/30 hover:shadow-lg focus:outline-none focus:ring-2 focus:ring-pink-300 dark:ring-white/10">
-          Бэлэг үзэх 💌
+          Бэлэг үзэх 🎁
         </motion.a>
       </motion.section>
     </main>

@@ -175,7 +175,7 @@ export default function SurprisePage() {
               ease: 'easeInOut',
             }}
           >
-            ❤️
+            ❄️
           </motion.span>
         ))}
 

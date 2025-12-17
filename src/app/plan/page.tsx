@@ -22,7 +22,7 @@ type Particle = {
 }
 
 /** Энд хүссэн emoji-гаа нэмж болно */
-const EMOJI_POOL = ['💗', '💞', '💖', '💘', '💕', '🌸', '🫶']
+const EMOJI_POOL = ['🎄', '🎁', '❄️', '⛄', '✨', '🕯️', '🥂']
 
 function useIsMobile() {
   const [isMobile, setIsMobile] = useState(false)
@@ -134,7 +134,7 @@ export default function PlanPage() {
               transition={{ duration: 0.4 }}
               className="text-3xl sm:text-4xl font-bold text-pink-600 mb-6 text-center"
             >
-              Бэлэг сонгох
+              {selected !== null ? 'Сонгосон бэлэг' : 'Бэлэг сонгох'}
             </m.h2>
 
             <div className="flex flex-col gap-3 w-full max-w-md">
@@ -163,7 +163,7 @@ export default function PlanPage() {
                 transition={{ duration: 0.4 }}
                 className="mt-8 px-6 py-3 bg-green-500 text-white rounded-full shadow text-lg font-semibold"
               >
-                🎉 Баяр хүргэе! Та амжилттай сонгосон.
+                🎉 Баяр хүргэе!
                 {selected == 0 && ' Кофе амттанг сонгосон таньд баяр хүргэе!'}
                 {selected == 1 && ' Өдрийн хоол сонгосон таньд баяр хүргэе!'}
                 {selected == 2 && ' Кино үзэхийг сонгосон таньд баяр хүргэе!'}
